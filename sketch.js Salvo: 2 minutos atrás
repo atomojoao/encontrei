@@ -1,0 +1,28 @@
+let x;
+let y;
+
+function setup() {
+  createCanvas(600, 700);
+  x = random(400);
+  x = int(x);
+  y = random(400);
+  y = int(y);
+}
+
+function draw() {
+  background(135, 206, 235);
+  x = x + random(-5, 5);
+  y = y + random(-5, 5);
+  x = constrain(x, 0, 400);
+  y = constrain(y, 0, 400);
+  let distancia;
+  distancia = dist(mouseX, mouseY, x, y);
+  circle(mouseX, mouseY, distancia);
+  
+  if (distancia < 3) {
+    textSize(32); 
+    textAlign(CENTER, CENTER); 
+    text("Encontrei!", width / 2, height / 2); 
+    noLoop();
+  }
+}
